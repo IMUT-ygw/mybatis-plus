@@ -1,6 +1,7 @@
 package com.ido.bootMybatisPlus;
 
 import com.baomidou.mybatisplus.annotation.IdType;
+import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
 import com.baomidou.mybatisplus.generator.AutoGenerator;
 import com.baomidou.mybatisplus.generator.config.DataSourceConfig;
 import com.baomidou.mybatisplus.generator.config.GlobalConfig;
@@ -75,6 +76,23 @@ class BootMybatisPlusApplicationTests {
         }else{
             System.out.println("逻辑删除数据失败");
         }
+    }
+
+
+    @Test
+    void page(){
+        System.out.println("==============测试分页插件PaginationInterceptor类================");
+        //1、创建一个page对象
+        Page<TestMybatisPlusUser> page = new Page<>(2,2);
+        testMybatisPlusUserService.page(page);
+        System.out.println("获取当前页:" + page.getCurrent());
+        System.out.println("获取总记录数:" + page.getTotal());
+        System.out.println("获取每页的条数:" + page.getSize());
+        System.out.println("获取每页数据的集合:" + page.getRecords());
+        System.out.println("获取总页数:" + page.getPages());
+        System.out.println("是否存在下一页:" + page.hasNext());
+        System.out.println("是否存在上一页:" + page.hasPrevious());
+
     }
 
 
