@@ -1,9 +1,8 @@
 package com.ido.bootMybatisPlus.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.ido.bootMybatisPlus.pojo.User;
-import org.apache.ibatis.annotations.Mapper;
+import com.ido.bootMybatisPlus.pojo.UserDiy;
 
-@Mapper
-public interface UserMapper extends BaseMapper<User> {
+
+public interface UserMapper extends BaseMapper<UserDiy> {
 }
